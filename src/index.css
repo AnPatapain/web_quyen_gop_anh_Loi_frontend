@@ -1,0 +1,13 @@
+html body {
+    margin: 0;
+    padding: 0;
+    background-color: #F6F6F6;
+    letter-spacing: 1px;
+}
+
+/*---------------- Home ---------------------*/
+.home .card {
+    max-width: 750px;
+}
+
+
