@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import HomeService from "../api/home.service.js";
 
@@ -9,6 +9,11 @@ const AddPost = () => {
         imgUrl: "",
         contact: ""
     })
+    useEffect(() => {
+        if(!localStorage.getItem("user")) {
+            navigate("/login?isSignup=false")
+        }
+    }, [])
     const handleChange = (e) => {
         let value = e.target.value
         let name = e.target.name

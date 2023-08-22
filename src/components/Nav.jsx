@@ -1,4 +1,10 @@
+import {useNavigate} from "react-router-dom";
+
 const Nav = () => {
+    const navigate = useNavigate()
+    const logout = () => {
+        localStorage.clear()
+    }
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -15,6 +21,21 @@ const Nav = () => {
                         <li className="nav-item">
                             <a className="nav-link active" href="/add">Quyên góp ngay</a>
                         </li>
+                        {
+                            localStorage.getItem("user") ?
+                                <li className="nav-item">
+                                    <a className="nav-link active" href="/add">{localStorage.getItem("user")}</a>
+                                </li> :
+                                <li className="nav-item">
+                                    <a className="nav-link active" href="/login?isSignup=false">Đăng Nhập</a>
+                                </li>
+                        }
+                        {
+                            localStorage.getItem("user") ?
+                                <li className="nav-item">
+                                    <a className="nav-link active" href="/" onClick={logout}>Đăng Xuất</a>
+                                </li> : null
+                        }
                     </ul>
                 </div>
             </div>

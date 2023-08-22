@@ -1,8 +1,6 @@
 import axios from "axios";
+import {getErrorMessage} from "./errorMessage.js";
 
-const getErrorMessage = (error) => {
-    return (error.response && error.response.data && error.response.data) || error.message || error.toString();
-}
 const getAllProfiles =  () => {
     return new Promise((resolve, reject) => {
         axios.get("http://localhost:8080/api/posts")
